@@ -1,0 +1,27 @@
+<div>
+    <form [formGroup]="formgroup" (ngSubmit)="onSubmit(formgroup.value)" class="form">
+        <mat-form-field floatLabel="never" class="form-element">
+            <input type="email" matInput placeholder="email" formControlName="Email">
+            <mat-error *ngIf="formgroup.controls['Email'].invalid">
+                {{getError('email')}}
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field floatLabel="never" class="form-element">
+            <input type="password" matInput placeholder="Password" formControlName="Password">
+            <mat-error *ngIf="!formgroup.controls['Password'].valid">
+                {{getError('pass')}}
+            </mat-error>
+        </mat-form-field>
+        <div class="form-element">
+            <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formgroup.valid">
+                Submit Form
+            </button>
+        </div>
+    </form>
+</div>
+<div>
+    <li>
+        <a routerLink="reactiveform">reactiveform</a>
+    </li>
+</div>
